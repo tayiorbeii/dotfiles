@@ -82,3 +82,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Get z working
+. `brew --prefix`/etc/profile.d/z.sh
