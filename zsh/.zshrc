@@ -85,3 +85,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
+
+# Add zsh syntax highlighting
+source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
