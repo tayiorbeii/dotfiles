@@ -110,3 +110,7 @@ function zle-line-finish
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
+
+# CTRL+R search
+bindkey -v
+bindkey '^R' history-incremental-search-backward
