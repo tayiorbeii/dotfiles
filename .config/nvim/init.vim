@@ -1,6 +1,10 @@
 " set leader to , instead of \
 let mapleader=","
 
+" Fix cursor depending on mode
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+
 " set linenumbers on by default
 " When in insert mode, show linear numbers
 " When not in insert mode, show current line number with relative numbers
@@ -33,6 +37,8 @@ function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'ternjs/tern_for_vim'
+Plug 'carlitux/deoplete-ternjs'
 
 " neomake for linting
 Plug 'neomake/neomake'
