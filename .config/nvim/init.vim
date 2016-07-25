@@ -92,3 +92,10 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
+" fzf mappings
+imap <C-l> <ESC>:Buffers<CR>
+map  <C-l> <ESC>:Buffers<CR>
+imap <C-p> <ESC>:Files<CR>
+map  <C-p> <ESC>:Files<CR>
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
