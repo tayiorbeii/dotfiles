@@ -123,6 +123,6 @@ let g:NERDCustomDelimiters = {
     \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \ }
 
-" Map CMD+D to toggle comment
-nmap <D-/> <leader>c<Space>
-vmap <D-/> <leader>c<Space>
+" Map CTRL+/ to toggle comment
+nmap <C-/> <leader>c<Space>
+vmap <C-/> <leader>c<Space>
