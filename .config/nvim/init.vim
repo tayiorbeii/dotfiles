@@ -20,4 +20,12 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
 
+" deoplete code completion (requires python 3)
+" brew install python3 
+" pip3 install neovim
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+
 call plug#end()
