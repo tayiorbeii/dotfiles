@@ -4,6 +4,9 @@ let mapleader=","
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+" seoul256 color scheme
+colo seoul256
+
 
 " set linenumbers on by default
 " When in insert mode, show linear numbers
@@ -50,6 +53,9 @@ Plug 'mxw/vim-jsx'
 
 " Nerd commenter
 Plug 'scrooloose/nerdcommenter'
+
+" seoul256 color schemes
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
@@ -124,5 +130,5 @@ let g:NERDCustomDelimiters = {
 \ }
 
 " Map CTRL+/ to toggle comment
-nmap <C-/> <leader>c<Space>
-vmap <C-/> <leader>c<Space>
+nmap <C-_> <leader>c<Space>
+vmap <C-_> <leader>c<Space>
