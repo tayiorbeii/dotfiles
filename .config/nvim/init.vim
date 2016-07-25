@@ -19,7 +19,7 @@ au InsertEnter * set norelativenumber
 au BufLeave,FocusLost,WinLeave * set norelativenumber
 au BufEnter,FocusGained,WinEnter * set relativenumber
 
-" vim-plug stuff
+""""""""""""" vim-plug stuff """"""""""""""""""""""""""""
 call plug#begin('~/dotfiles/.config/nvim/plugged')
 
 " fzf fuzzy finding
@@ -48,7 +48,11 @@ Plug 'neomake/neomake'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Nerd commenter
+Plug 'scrooloose/nerdcommenter'
+
 call plug#end()
+""""""""""""" end vim-plug stuff"""""""""""""""""""""""""
 
 " neomake 
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -99,3 +103,26 @@ imap <C-p> <ESC>:Files<CR>
 map  <C-p> <ESC>:Files<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
+" Nerdcommenter stuff
+filetype plugin on
+" Add spaces after comment delims
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+
+" Custom comment delimiters for NERDCommenter 
+let g:NERDCustomDelimiters = {
+    \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+\ }
+
+" Map CMD+D to toggle comment
+nmap <D-/> <leader>c<Space>
+vmap <D-/> <leader>c<Space>
