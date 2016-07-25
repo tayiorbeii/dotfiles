@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/taylorbell/.oh-my-zsh
 
+# Symlink nvim dotfiles to actual .config directory
+# ln -nsf ~/dotfiles/.config/nvim ~/.config/nvim
+export XDG_CONFIG_HOME=~/.config
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
