@@ -1,6 +1,8 @@
 " set leader to , instead of \
 let mapleader=","
 
+set expandtab " tab key puts in spaces
+
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -97,6 +99,14 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
+" Neomake lint stuff
+let g:neomake_javascript_enabled_markers = ['eslint']
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 " fzf mappings
 imap <C-l> <ESC>:Buffers<CR>
