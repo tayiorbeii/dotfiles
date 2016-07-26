@@ -94,12 +94,10 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 " Neomake lint stuff
-let g:neomake_open_list=0
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_logfile = '/usr/local/var/log/neomake.log'
-" autocmd! BufWritePost,BufEnter * Neomake " run Neomake when entering/saving a js buffer
-" let g:neomake_open_list = 2 " opens window
+let g:neomake_open_list = 2 " opens window
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
