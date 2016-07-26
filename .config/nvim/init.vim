@@ -48,6 +48,7 @@ Plug 'neomake/neomake'
 " JS specific stuff
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " Nerd commenter
 Plug 'scrooloose/nerdcommenter'
@@ -57,14 +58,6 @@ Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
-
-" neomake 
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
-
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -101,7 +94,12 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 " Neomake lint stuff
-let g:neomake_javascript_enabled_markers = ['eslint']
+let g:neomake_open_list=0
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_jsx_enabled_makers = ['eslint']
+let g:neomake_logfile = '/usr/local/var/log/neomake.log'
+" autocmd! BufWritePost,BufEnter * Neomake " run Neomake when entering/saving a js buffer
+" let g:neomake_open_list = 2 " opens window
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
