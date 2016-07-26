@@ -57,6 +57,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 
 " Airline status bar
+" https://github.com/powerline/fonts/tree/master/SourceCodePro
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
