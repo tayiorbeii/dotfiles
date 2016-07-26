@@ -53,6 +53,15 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Nerd commenter
 Plug 'scrooloose/nerdcommenter'
 
+" Fugitive git
+Plug 'tpope/vim-fugitive'
+
+" Airline status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-bufferline'
+
+
 " seoul256 color schemes
 Plug 'junegunn/seoul256.vim'
 
@@ -135,5 +144,19 @@ let g:NERDCustomDelimiters = {
 nmap <C-_> <leader>c<Space>
 vmap <C-_> <leader>c<Space>
 
+" Highlight search results
+set hlsearch
+
+" make searching case insensitive unless using a capital
+set ignorecase
+set smartcase
+
 " seoul256 color scheme
 colorscheme seoul256
+
+" Airline Stuff
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline_theme='distinguished'
+
