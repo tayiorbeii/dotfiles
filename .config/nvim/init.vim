@@ -157,6 +157,8 @@ set smartcase
 
 " seoul256 color scheme
 colorscheme seoul256
+" highlight Pmenu ctermfg= ctermbg=
+" highlight PmenuSel ctermfg= ctermbg=
 
 " Airline Stuff
 let g:airline_powerline_fonts = 1
