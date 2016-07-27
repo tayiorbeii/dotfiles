@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
+alias readlink="greadlink"
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
@@ -121,3 +122,7 @@ zle -N zle-keymap-select
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 
+# Base16
+export CLICOLOR=1
+BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL

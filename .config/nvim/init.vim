@@ -66,8 +66,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'bling/vim-bufferline'
 
 
-" seoul256 color schemes
+" color schemes
 Plug 'junegunn/seoul256.vim'
+Plug 'chriskempson/base16-vim'
+
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
@@ -155,10 +157,9 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" seoul256 color scheme
-colorscheme seoul256
-" highlight Pmenu ctermfg= ctermbg=
-" highlight PmenuSel ctermfg= ctermbg=
+" colors
+" let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-eighties
 
 " Airline Stuff
 let g:airline_powerline_fonts = 1
