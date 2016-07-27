@@ -2,6 +2,9 @@
 let mapleader=","
 
 set expandtab " tab key puts in spaces
+" crosshairs
+set cursorline
+set cursorcolumn
 
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
