@@ -88,6 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias v="nvim"
+alias vi="nvim"
 alias readlink="greadlink"
 
 # Get z working

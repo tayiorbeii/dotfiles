@@ -70,7 +70,8 @@ Plug 'bling/vim-bufferline'
 Plug 'junegunn/seoul256.vim'
 Plug 'chriskempson/base16-vim'
 
-
+" NerdTree
+Plug 'scrooloose/nerdtree'
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
@@ -112,7 +113,8 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_logfile = '/usr/local/var/log/neomake.log'
-let g:neomake_open_list = 2 " opens window
+" let g:neomake_open_list = 2 " opens window
+let g:neomake_open_list = 0 " opens window
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
@@ -175,3 +177,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Nerdtree shortcut
+map <C-n> :NERDTreeToggle<CR>
