@@ -44,6 +44,9 @@ Plug 'carlitux/deoplete-ternjs'
 " neomake for linting
 Plug 'neomake/neomake'
 
+" Ultisnips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " JS specific stuff
 Plug 'pangloss/vim-javascript'
@@ -161,3 +164,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#bufferline#enabled = 1
 let g:airline_theme='distinguished'
 
+" Ultisnips stuff
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
