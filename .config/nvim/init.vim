@@ -75,6 +75,10 @@ Plug 'chriskempson/base16-vim'
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
+
+" Rainbow Parentheses
+Plug 'kien/rainbow_parentheses.vim'
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
@@ -183,3 +187,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Nerdtree shortcut
 map <C-n> :NERDTreeToggle<CR>
+
+" Rainbow Parens stuff
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
