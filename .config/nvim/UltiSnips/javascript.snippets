@@ -10,8 +10,8 @@ def react_es6():
 	buffer = vim.current.buffer
 	for line in buffer:
 		if re.search('React.createClass', line):
-			return False;
-	return True;
+			return False
+	return True
 endglobal
 
 
@@ -20,9 +20,9 @@ const ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} 
 	render: function() {
 		$0
 	}
-});
+})
 
-module.exports = $1;
+module.exports = $1
 endsnippet
 
 snippet cdm "componentDidMount" b
@@ -65,7 +65,7 @@ snippet gdp "getDefaultProps" b
 getDefaultProps: function() {
 	return {
 		$0
-	};
+	}
 },
 endsnippet
 
@@ -73,13 +73,13 @@ snippet gis "getInitialState" b
 getInitialState: function() {
 	return {
 		$0
-	};
+	}
 },
 endsnippet
 
 snippet scu "shouldComponentUpdate" b
 shouldComponentUpdate`!p snip.rv = '' if react_es6() else ': function'`(nextProps, nextState) {
-	return ${1:true};
+	return ${1:true}
 }`!p snip.rv = '' if react_es6() else ','`
 endsnippet
 
@@ -90,10 +90,17 @@ endsnippet
 #
 
 snippet dir "console.dir"
-console.dir(${1});
+console.dir(${1})
 endsnippet
 
-snippet log "console.log"
-console.log(${1});
+snippet clv
+console.log('$1: ', $1)
 endsnippet
 
+snippet clvj
+console.log('$1: ', $1.toJSON())
+endsnippet
+
+snippet cl*
+console.log('**************************')
+endsnippet
