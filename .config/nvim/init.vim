@@ -8,7 +8,7 @@ set cursorcolumn
 
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " set linenumbers on by default
 " When in insert mode, show linear numbers
 " When not in insert mode, show current line number with relative numbers
@@ -81,6 +81,12 @@ Plug 'kien/rainbow_parentheses.vim'
 
 " Vim Startify
 Plug 'mhinz/vim-startify'
+
+" Repeat (for clipboard manager)
+Plug 'tpope/vim-repeat'
+
+" Clipboard manager
+Plug 'svermeulen/vim-easyclip'
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
@@ -172,6 +178,8 @@ set smartcase
 " colors
 " let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-eighties
+
+set colorcolumn=100
 
 " Airline Stuff
 let g:airline_powerline_fonts = 1

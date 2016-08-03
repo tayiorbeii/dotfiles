@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/taylorbell/.oh-my-zsh
-
+export TERM='xterm-256color'
 # Symlink nvim dotfiles to actual .config directory
 # ln -nsf ~/dotfiles/.config/nvim ~/.config/nvim
 export XDG_CONFIG_HOME=~/.config
