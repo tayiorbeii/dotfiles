@@ -23,6 +23,11 @@ au InsertEnter * set norelativenumber
 au BufLeave,FocusLost,WinLeave * set norelativenumber
 au BufEnter,FocusGained,WinEnter * set relativenumber
 
+" Map Ctrl+e to end of line in insert mode
+inoremap <C-e> <C-o>$<Space>
+" Map Ctrl+a to beginning of line in insert mode
+inoremap <C-a> <C-o>0
+
 """"""""""""" vim-plug stuff """"""""""""""""""""""""""""
 call plug#begin('~/dotfiles/.config/nvim/plugged')
 
