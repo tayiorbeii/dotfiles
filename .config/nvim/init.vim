@@ -88,6 +88,9 @@ Plug 'tpope/vim-repeat'
 " Clipboard manager
 Plug 'svermeulen/vim-easyclip'
 
+" Surround 
+Plug 'tpope/vim-surround'
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
