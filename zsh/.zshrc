@@ -91,6 +91,8 @@ alias v="nvim"
 alias vi="nvim"
 alias readlink="greadlink"
 alias gitrecent="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+alias gpum="git pull upstream master"
+
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
 

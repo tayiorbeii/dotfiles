@@ -5,7 +5,6 @@ set expandtab " tab key puts in spaces
 " crosshairs
 set cursorline
 set cursorcolumn
-
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -185,8 +184,8 @@ set smartcase
 
 " colors
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-solarized-light
-
+set termguicolors
+colorscheme base16-ocean
 set colorcolumn=100
 
 " Airline Stuff
