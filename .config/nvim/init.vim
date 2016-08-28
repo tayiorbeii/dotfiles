@@ -95,6 +95,12 @@ Plug 'svermeulen/vim-easyclip'
 " Surround 
 Plug 'tpope/vim-surround'
 
+" Stupid Easy Motion
+"<Leader><Leader>w - make every word a target
+"<Leader><Leader>W - make every space separated word a target
+"<Leader><Leader>fx - make every character x in the line a target
+Plug 'joequery/Stupid-EasyMotion'
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
@@ -227,3 +233,6 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+
+" Map Ctrl+O for Stupid EasyMotion
+map <C-O> <Leader><Leader>w
