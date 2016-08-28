@@ -23,7 +23,7 @@ au BufLeave,FocusLost,WinLeave * set norelativenumber
 au BufEnter,FocusGained,WinEnter * set relativenumber
 
 " Map Ctrl+e to end of line in insert mode
-inoremap <C-e> <C-o>$<Space>
+inoremap <C-e> <C-o>$
 " Map Ctrl+a to beginning of line in insert mode
 inoremap <C-a> <C-o>0
 
