@@ -59,6 +59,8 @@ Plug 'honza/vim-snippets'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
 
 " Nerd commenter
 Plug 'scrooloose/nerdcommenter'
@@ -76,6 +78,7 @@ Plug 'bling/vim-bufferline'
 " color schemes
 Plug 'junegunn/seoul256.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'trevordmiller/nova-vim'
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
@@ -188,12 +191,6 @@ set hlsearch
 set ignorecase
 set smartcase
 
-" colors
-let base16colorspace=256  " Access colors present in 256 colorspace
-set termguicolors
-colorscheme base16-ocean
-set colorcolumn=100
-
 " Airline Stuff
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -236,3 +233,9 @@ let g:rbpt_loadcmd_toggle = 0
 
 " Map Ctrl+O for Stupid EasyMotion
 map <C-O> <Leader><Leader>w
+
+" colors
+" let base16colorspace=256  " Access colors present in 256 colorspace
+" set termguicolors
+colorscheme nova
+set colorcolumn=100

@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/taylorbell/.oh-my-zsh
-export TERM='xterm-256color'
+# export TERM='xterm-256color'
 # Symlink nvim dotfiles to actual .config directory
 # ln -nsf ~/dotfiles/.config/nvim ~/.config/nvim
 export XDG_CONFIG_HOME=~/.config
@@ -58,6 +58,8 @@ plugins=(git brew npm vi-mode)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/mysql/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,6 +94,7 @@ alias vi="nvim"
 alias readlink="greadlink"
 alias gitrecent="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias gpum="git pull upstream master"
+alias psg='ps -aef | grep -v psg | grep -v grep | grep'
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
@@ -126,6 +129,10 @@ bindkey -v
 bindkey '^R' history-incremental-search-backward
 
 # Base16
-export CLICOLOR=1
-BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.sh"
-[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+# export CLICOLOR=1
+# BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.sh"
+# [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+# Virtualcandy
+source ~/.virtualcandy/src/virtualcandy.zsh
+
