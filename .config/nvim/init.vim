@@ -1,7 +1,15 @@
 " set leader to , instead of \
 let mapleader=","
 
+set smarttab
 set expandtab " tab key puts in spaces
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+set indentkeys+=O,o
+
 " crosshairs
 set cursorline
 set cursorcolumn

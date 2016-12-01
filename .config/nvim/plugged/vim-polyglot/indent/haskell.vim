@@ -60,18 +60,35 @@ if !exists('g:haskell_indent_guard')
 endif
 
 setlocal indentexpr=GetHaskellIndent()
-setlocal indentkeys=0{,0},0(,0),0[,0],!^F,o,O,0\=,0=where,0=let,0=deriving,0\,,<space>
+setlocal indentkeys=0{,0},0(,0),0[,0],!^F,o,O,0\=,0=where,0=let,0=deriving,<space>
 
 function! s:isInBlock(hlstack)
-  return index(a:hlstack, 'haskellParens') > -1 || index(a:hlstack, 'haskellBrackets') > -1 || index(a:hlstack, 'haskellBlock') > -1
+  return index(a:hlstack, 'haskellParens') > -1 || index(a:hlstack, 'haskellBrackets') > -1 || index(a:hlstack, 'haskellBlock') > -1 || index(a:hlstack, 'haskellBlockComment') > -1 || index(a:hlstack, 'haskellPragma') > -1
+endfunction
+
+function! s:stripTrailingComment(line)
+  if a:line =~ '^\s*--\(-\+\|\s\+\)' || a:line =~ '^\s*{-'
+    return a:line
+  else
+    let l:stripped = split(a:line, '-- ')
+    if len(l:stripped) > 1
+      return substitute(l:stripped[0], '\s*$', '', '')
+    else
+      return a:line
+    endif
+  endif
+endfunction
+
+function! s:isSYN(grp, line, col)
+  return index(s:getHLStack(a:line, a:col), a:grp) != -1
 endfunction
 
 function! s:getNesting(hlstack)
-  return filter(a:hlstack, 'v:val == "haskellBlock" || v:val == "haskellBrackets" || v:val == "haskellParens"')
+  return filter(a:hlstack, 'v:val == "haskellBlock" || v:val == "haskellBrackets" || v:val == "haskellParens" || v:val == "haskellBlockComment" || v:val == "haskellPragma" ')
 endfunction
 
-function! s:getHLStack()
-  return map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+function! s:getHLStack(line, col)
+  return map(synstack(a:line, a:col), 'synIDattr(v:val, "name")')
 endfunction
 
 " indent matching character
@@ -110,14 +127,14 @@ function! s:indentGuard(pos, prevline)
 endfunction
 
 function! GetHaskellIndent()
-  let l:hlstack = s:getHLStack()
+  let l:hlstack = s:getHLStack(line('.'), col('.'))
 
   " do not indent in strings and quasiquotes
   if index(l:hlstack, 'haskellQuasiQuote') > -1 || index(l:hlstack, 'haskellBlockComment') > -1
     return -1
   endif
 
-  let l:prevline = getline(v:lnum - 1)
+  let l:prevline = s:stripTrailingComment(getline(v:lnum - 1))
   let l:line     = getline(v:lnum)
 
   " indent multiline strings
@@ -135,8 +152,41 @@ function! GetHaskellIndent()
   endif
 
   " comment indentation
+  if l:line =~ '^\s*--'
+    return match(l:prevline, '-- ')
+  endif
   if l:prevline =~ '^\s*--'
     return match(l:prevline, '\S')
+  endif
+
+  "   { foo :: Int
+  " >>,
+  "
+  "   |
+  "   ...
+  " >>,
+  if l:line =~ '^\s*,'
+    if s:isInBlock(l:hlstack)
+      normal! 0
+      call search(',', 'cW')
+      let l:n = s:getNesting(s:getHLStack(line('.'), col('.')))
+      call search('[([{]', 'bW')
+      let l:cl = line('.')
+      let l:cc = col('.')
+
+      while l:n != s:getNesting(s:getHLStack(l:cl, l:cc)) || s:isSYN('haskellString', l:cl, l:cc) || s:isSYN('haskellChar', l:cl, l:cc)
+        call search('[([{]', 'bW')
+        let l:cl = line('.')
+        let l:cc = col('.')
+      endwhile
+
+      return l:cc - 1
+    else
+      let l:s = s:indentGuard(match(l:line, ','), l:prevline)
+      if l:s > -1
+        return l:s
+      end
+    endif
   endif
 
   " operator at end of previous line
@@ -166,11 +216,20 @@ function! GetHaskellIndent()
   " >>>>y = 2
   if l:prevline =~ '\C\<let\>\s\+.\+$'
     if l:line =~ '\C^\s*\<let\>'
-      return match(l:prevline, '\C\<let\>')
+      let l:s = match(l:prevline, '\C\<let\>')
+      if s:isSYN('haskellLet', v:lnum - 1, l:s + 1)
+        return l:s
+      endif
     elseif l:line =~ '\C^\s*\<in\>'
-      return match(l:prevline, '\C\<let\>') + g:haskell_indent_in
+      let l:s = match(l:prevline, '\C\<let\>')
+      if s:isSYN('haskellLet', v:lnum - 1, l:s + 1)
+        return l:s + g:haskell_indent_in
+      endif
     else
-      return match(l:prevline, '\C\<let\>') + g:haskell_indent_let
+      let l:s = match(l:prevline, '\C\<let\>')
+      if s:isSYN('haskellLet', v:lnum - 1, l:s + 1)
+        return l:s + g:haskell_indent_let
+      endif
     endif
   endif
 
@@ -199,26 +258,32 @@ function! GetHaskellIndent()
     return match(l:prevline, '\S') + &shiftwidth
   endif
 
-  "" where foo
-  "" >>>>>>bar
-  if l:prevline =~ '\C\<where\>\s\+\S\+.*$'
-    if  l:line =~ '^\s*[=-]>\s' && l:prevline =~ ' :: '
-      return match(l:prevline, ':: ')
-    else
-      return match(l:prevline, '\C\<where\>') + g:haskell_indent_where
-  endif
-  endif
-
   " do foo
   " >>>bar
   if l:prevline =~ '\C\<do\>\s\+\S\+.*$'
-    return match(l:prevline, '\C\<do\>') + g:haskell_indent_do
+    let l:s = match(l:prevline, '\C\<do\>')
+    if s:isSYN('haskellKeyword', v:lnum - 1, l:s + 1)
+      return l:s + g:haskell_indent_do
+    endif
   endif
 
   " case foo of
   " >>bar -> quux
   if l:prevline =~ '\C\<case\>.\+\<of\>\s*$'
     return match(l:prevline, '\C\<case\>') + g:haskell_indent_case
+  endif
+
+  "" where foo
+  "" >>>>>>bar
+  if l:prevline =~ '\C\<where\>\s\+\S\+.*$'
+    if  l:line =~ '^\s*[=-]>\s' && l:prevline =~ ' :: '
+      return match(l:prevline, ':: ')
+    else
+      let l:s = match(l:prevline, '\C\<where\>')
+      if s:isSYN('haskellWhere', v:lnum - 1, l:s + 1)
+        return l:s + g:haskell_indent_where
+      endif
+    endif
   endif
 
   " newtype Foo = Foo
@@ -359,32 +424,6 @@ function! GetHaskellIndent()
       else
         return &shiftwidth
       endif
-    endif
-  endif
-
-  "   { foo :: Int
-  " >>,
-  "
-  "   |
-  "   ...
-  " >>,
-  if l:line =~ '^\s*,'
-    if s:isInBlock(l:hlstack)
-      normal! 0
-      call search(',', 'cW')
-      let l:n = s:getNesting(s:getHLStack())
-      call search('[(\[{]', 'bW')
-
-      while l:n != s:getNesting(s:getHLStack())
-        call search('[(\[{]', 'bW')
-      endwhile
-
-      return col('.') - 1
-    else
-      let l:s = s:indentGuard(match(l:line, ','), l:prevline)
-      if l:s > -1
-        return l:s
-      end
     endif
   endif
 
