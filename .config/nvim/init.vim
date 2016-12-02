@@ -54,7 +54,7 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'ternjs/tern_for_vim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'on_ft': 'javascript' }
 
 " neomake for linting
 Plug 'neomake/neomake'
@@ -148,6 +148,8 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<tab>"
 
 " tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+let g:tern#command =['tern']
+let g:tern#arguments = ['--persistent']
 
 " Neomake lint stuff
 let g:neomake_javascript_enabled_makers = ['eslint']
