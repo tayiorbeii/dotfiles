@@ -10,6 +10,16 @@ set autoindent
 set smartindent
 set indentkeys+=O,o
 
+" move up virtual lines
+noremap  <silent> k gk
+noremap  <silent> j gj
+
+" disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 " crosshairs
 set cursorline
 set cursorcolumn
