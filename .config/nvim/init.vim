@@ -122,6 +122,10 @@ Plug 'tpope/vim-surround'
 "<Leader><Leader>fx - make every character x in the line a target
 Plug 'joequery/Stupid-EasyMotion'
 
+" Markdown Preview
+Plug 'neovim/node-host', { 'do': 'npm install' }
+Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.

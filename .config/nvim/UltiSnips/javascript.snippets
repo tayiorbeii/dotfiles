@@ -2,88 +2,40 @@
 # React
 #
 
-global !p
-"""
-Checks the current buffer to see whether React ES6 syntax should be used.
-"""
-def react_es6():
-	buffer = vim.current.buffer
-	for line in buffer:
-		if re.search('React.createClass', line):
-			return False
-	return True
-endglobal
+snippet sfc "Stateless Functional Component" b
+const $1 = (\{${2}\}) => {
+	return (
+		$4		
+	)
+}
+$1.propTypes = {
+	$3
+}
 
-
-snippet cc "createClass" b
-const ${1:`!p snip.rv = re.sub('\.react$', '', snip.basename or 'ModuleName')`} = React.createClass({
-	render: function() {
-		$0
-	}
-})
-
-module.exports = $1
 endsnippet
 
-snippet cdm "componentDidMount" b
-componentDidMount`!p snip.rv = '' if react_es6() else ': function'`() {
+snippet pts "PropTypes string"
+PropTypes.string
+endsnippet
+
+snippet ptsr "PropTypes string required"
+PropTypes.string.isRequired
+endsnippet
+
+snippet pto "PropTypes object"
+PropTypes.object
+endsnippet
+
+snippet ptor "PropTypes object required"
+PropTypes.object.isRequired
+endsnippet
+
+
+snippet d "<div>"
+<div${1: className=$2}>
 	$0
-}`!p snip.rv = '' if react_es6() else ','`
+</div>
 endsnippet
-
-snippet cdu "componentDidUpdate" b
-componentDidUpdate`!p snip.rv = '' if react_es6() else ': function'`(prevProps, prevState) {
-	$0
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-snippet cwm "componentWillMount" b
-componentWillMount`!p snip.rv = '' if react_es6() else ': function'`() {
-	$0
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-snippet cwrp "componentWillReceiveProps" b
-componentWillReceiveProps`!p snip.rv = '' if react_es6() else ': function'`(nextProps) {
-	$0
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-snippet cwum "componentWillUnmount" b
-componentWillUnmount`!p snip.rv = '' if react_es6() else ': function'`() {
-	$0
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-snippet cwu "componentWillUpdate" b
-componentWillUpdate`!p snip.rv = '' if react_es6() else ': function'`(nextProps, nextState) {
-	$0
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-snippet gdp "getDefaultProps" b
-getDefaultProps: function() {
-	return {
-		$0
-	}
-},
-endsnippet
-
-snippet gis "getInitialState" b
-getInitialState: function() {
-	return {
-		$0
-	}
-},
-endsnippet
-
-snippet scu "shouldComponentUpdate" b
-shouldComponentUpdate`!p snip.rv = '' if react_es6() else ': function'`(nextProps, nextState) {
-	return ${1:true}
-}`!p snip.rv = '' if react_es6() else ','`
-endsnippet
-
-
 
 #
 # console methods
