@@ -224,14 +224,14 @@ let g:airline_theme='distinguished'
 " Ultisnips stuff
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-o>"
+let g:UltiSnipsJumpBackwardTrigger="<c-i>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
 " Nerdtree shortcut
-map <C-n> :NERDTreeToggle<CR>
+map <F5> :NERDTreeToggle<CR>
 
 " Rainbow Parens stuff
 let g:rbpt_colorpairs = [
@@ -255,8 +255,8 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-" Map Ctrl+O for Stupid EasyMotion
-map <C-O> <Leader><Leader>w
+" Map Ctrl+k for Stupid EasyMotion
+map <C-k> <Leader><Leader>w
 
 " colors
 " let base16colorspace=256  " Access colors present in 256 colorspace
