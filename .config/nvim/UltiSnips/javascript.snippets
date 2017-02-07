@@ -14,6 +14,17 @@ $1.propTypes = {
 
 endsnippet
 
+snippet caf "const arrow function"
+const $1 = ($2) => {
+	$3
+}
+
+endsnippet
+
+snippet r "return"
+return $1
+endsnippet
+
 snippet pts "PropTypes string"
 PropTypes.string
 endsnippet
@@ -44,34 +55,48 @@ if ($1) {
 
 endsnippet
 
-snippet ( "parens"
+snippet ( "parens" i
 ($1)
 endsnippet
 
-snippet { "braces"
+snippet (n "parens with new line" i
+(
+	$1
+)
+endsnippet
+
+snippet { "braces" i
 {$1}
 endsnippet
 
-snippet ' "quotes"
+snippet ' "quotes" i
 '$1'
 endsnippet
 
-snippet " "quotes"
+snippet " "quotes" i
 "$1"
 endsnippet
 
-snippet ` "tack"
+snippet ` "tack" i
 \`$1\`
 endsnippet
 
-snippet st "string interpolation"
-${$1}
+snippet st "string interpolation" i
+\$\{$1\} $2
 endsnippet
 
 snippet oa "Object.assign"
 Object.assign({$1}, $2)
 endsnippet
 
+snippet i "import" b
+import $1 from '$2'
+endsnippet
+
+snippet di "Destructured Import" b
+import \{ $1 \} from '$2'
+
+endsnippet
 #
 # console methods
 #
