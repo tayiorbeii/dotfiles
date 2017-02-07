@@ -37,6 +37,41 @@ snippet d "<div>"
 </div>
 endsnippet
 
+snippet if "if statement"
+if ($1) {
+	$2
+}
+
+endsnippet
+
+snippet ( "parens"
+($1)
+endsnippet
+
+snippet { "braces"
+{$1}
+endsnippet
+
+snippet ' "quotes"
+'$1'
+endsnippet
+
+snippet " "quotes"
+"$1"
+endsnippet
+
+snippet ` "tack"
+\`$1\`
+endsnippet
+
+snippet st "string interpolation"
+${$1}
+endsnippet
+
+snippet oa "Object.assign"
+Object.assign({$1}, $2)
+endsnippet
+
 #
 # console methods
 #
