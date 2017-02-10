@@ -21,6 +21,16 @@ const $1 = ($2) => {
 
 endsnippet
 
+snippet t "Tag"
+<$1>$2</$1>
+endsnippet
+
+snippet tn "Tag with new line"
+<${1}>
+	${2}
+</$1>${0}
+endsnippet
+
 snippet r "return"
 return $1
 endsnippet
@@ -52,7 +62,10 @@ snippet if "if statement"
 if ($1) {
 	$2
 }
+endsnippet
 
+snippet pp "pass prop"
+$1={$1}
 endsnippet
 
 snippet ( "parens" i
