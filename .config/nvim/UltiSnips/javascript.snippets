@@ -14,6 +14,13 @@ $1.propTypes = {
 
 endsnippet
 
+snippet red "reduce"
+$1.reduce((p, $2) => {
+	$4
+}, $3)
+
+endsnippet
+
 snippet caf "const arrow function"
 const $1 = ($2) => {
 	$3
@@ -29,6 +36,10 @@ snippet tn "Tag with new line"
 <${1}>
 	${2}
 </$1>${0}
+endsnippet
+
+snippet cn "className"
+className={$1}
 endsnippet
 
 snippet r "return"
@@ -64,8 +75,12 @@ if ($1) {
 }
 endsnippet
 
-snippet pp "pass prop"
+snippet pp "pass prop (identity)"
 $1={$1}
+endsnippet
+
+snippet p "pass prop"
+$1={$2}
 endsnippet
 
 snippet ( "parens" i

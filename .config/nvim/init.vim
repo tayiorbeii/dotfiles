@@ -9,6 +9,7 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set indentkeys+=O,o
+set clipboard=unnamed
 
 " move up virtual lines
 noremap  <silent> k gk
