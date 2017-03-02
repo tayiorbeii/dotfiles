@@ -138,3 +138,8 @@ bindkey '^R' history-incremental-search-backward
 # Virtualcandy
 source ~/.virtualcandy/src/virtualcandy.zsh
 
+
+# added by travis gem
+[ -f /Users/taylor/.travis/travis.sh ] && source /Users/taylor/.travis/travis.sh
+
+export PATH="$HOME/.yarn/bin:$PATH"

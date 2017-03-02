@@ -10,6 +10,11 @@ set autoindent
 set smartindent
 set indentkeys+=O,o
 set clipboard=unnamed
+set incsearch
+set wrapscan
+
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 " move up virtual lines
 noremap  <silent> k gk
@@ -69,10 +74,11 @@ Plug 'carlitux/deoplete-ternjs', { 'on_ft': 'javascript' }
 
 " neomake for linting
 Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+
 
 " Ultisnips
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " JS specific stuff
 Plug 'pangloss/vim-javascript'

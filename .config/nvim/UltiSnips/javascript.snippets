@@ -10,26 +10,33 @@ const $1 = (\{${2}\}) => {
 }
 $1.propTypes = {
 	$3
-}
+}${0}
 
 endsnippet
 
 snippet red "reduce"
 $1.reduce((p, $2) => {
 	$4
-}, $3)
+}, $3)${0}
 
 endsnippet
 
 snippet caf "const arrow function"
 const $1 = ($2) => {
 	$3
-}
+}${0}
+
+endsnippet
+
+snippet aaf "anonymous arrow function"
+($1) => {
+	$2
+}${0}
 
 endsnippet
 
 snippet t "Tag"
-<$1>$2</$1>
+<${1}>${2}</$1>${0}
 endsnippet
 
 snippet tn "Tag with new line"
@@ -39,44 +46,47 @@ snippet tn "Tag with new line"
 endsnippet
 
 snippet cn "className"
-className={$1}
+className={$1}${0}
 endsnippet
 
 snippet r "return"
-return $1
+return $1${0}
 endsnippet
 
 snippet pts "PropTypes string"
-PropTypes.string
+PropTypes.string${0}
 endsnippet
 
 snippet ptsr "PropTypes string required"
-PropTypes.string.isRequired
+PropTypes.string.isRequired${0}
 endsnippet
 
 snippet pto "PropTypes object"
-PropTypes.object
+PropTypes.object${0}
 endsnippet
 
 snippet ptor "PropTypes object required"
-PropTypes.object.isRequired
+PropTypes.object.isRequired${0}
 endsnippet
 
+snippet de "debugger;"
+debugger;${0}
+endsnippet
 
 snippet d "<div>"
 <div${1: className=$2}>
 	$0
-</div>
+</div> ${0}
 endsnippet
 
 snippet if "if statement"
 if ($1) {
 	$2
-}
+} ${0}
 endsnippet
 
 snippet pp "pass prop (identity)"
-$1={$1}
+$1={$1}${0}
 endsnippet
 
 snippet p "pass prop"
@@ -84,45 +94,47 @@ $1={$2}
 endsnippet
 
 snippet ( "parens" i
-($1)
+($1) ${0}
 endsnippet
 
 snippet (n "parens with new line" i
 (
 	$1
-)
+) ${0}
 endsnippet
 
 snippet { "braces" i
-{$1}
+{$1} ${0}
 endsnippet
 
-snippet ' "quotes" i
-'$1'
+snippet {n "braces with new line" i
+{
+	$1
+} ${0}
 endsnippet
 
 snippet " "quotes" i
-"$1"
+"$1" ${0}
 endsnippet
 
 snippet ` "tack" i
-\`$1\`
+\`$1\` ${0}
 endsnippet
 
 snippet st "string interpolation" i
-\$\{$1\} $2
+\$\{$1\} $2 ${0}
 endsnippet
 
 snippet oa "Object.assign"
-Object.assign({$1}, $2)
+Object.assign({$1}, $2) ${0}
 endsnippet
 
 snippet i "import" b
-import $1 from '$2'
+import $1 from '$2' ${0}
 endsnippet
 
 snippet di "Destructured Import" b
-import \{ $1 \} from '$2'
+import \{ $1 \} from '$2' ${0}
 
 endsnippet
 #
@@ -130,17 +142,17 @@ endsnippet
 #
 
 snippet dir "console.dir"
-console.dir(${1})
+console.dir(${1}) ${0}
 endsnippet
 
 snippet clv
-console.log('$1: ', $1)
+console.log('$1: ', $1) ${0}
 endsnippet
 
 snippet clvj
-console.log('$1: ', $1.toJSON())
+console.log('$1: ', $1.toJSON()) ${0}
 endsnippet
 
 snippet cl*
-console.log('**************************')
+console.log('**************************') ${0}
 endsnippet
