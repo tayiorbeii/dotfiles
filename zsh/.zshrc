@@ -97,6 +97,7 @@ alias readlink="greadlink"
 alias gitrecent="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias gpum="git pull upstream master"
 alias psg='ps -aef | grep -v psg | grep -v grep | grep'
+alias k="clear"
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
