@@ -123,11 +123,11 @@ Plug 'svermeulen/vim-easyclip'
 " Surround 
 Plug 'tpope/vim-surround'
 
-" Stupid Easy Motion
+" Easy Motion
 "<Leader><Leader>w - make every word a target
 "<Leader><Leader>W - make every space separated word a target
 "<Leader><Leader>fx - make every character x in the line a target
-Plug 'joequery/Stupid-EasyMotion'
+Plug 'easymotion/vim-easymotion'
 
 " Markdown Preview
 Plug 'neovim/node-host', { 'do': 'npm install' }
@@ -262,7 +262,8 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
 
-" Map Ctrl+k for Stupid EasyMotion
+" Map Ctrl+k for EasyMotion
+map <Leader><Leader>w <Plug>(easymotion-overwin-w)
 map <C-k> <Leader><Leader>w
 
 " colors

@@ -2,6 +2,10 @@
 # React
 #
 
+snippet ir "Import React" b
+import React from 'react'
+endsnippet
+
 snippet sfc "Stateless Functional Component" b
 const $1 = (\{${2}\}) => {
 	return (
@@ -10,7 +14,7 @@ const $1 = (\{${2}\}) => {
 }
 $1.propTypes = {
 	$3
-}${0}
+}
 
 endsnippet
 
@@ -36,13 +40,13 @@ snippet aaf "anonymous arrow function"
 endsnippet
 
 snippet t "Tag"
-<${1}>${2}</$1>${0}
+<${1}>${2}</$1>
 endsnippet
 
 snippet tn "Tag with new line"
 <${1} className={${2}}>
 	${3}
-</$1>${0}
+</$1>
 endsnippet
 
 snippet cn "className"
