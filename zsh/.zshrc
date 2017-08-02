@@ -136,9 +136,6 @@ bindkey '^R' history-incremental-search-backward
 # BASE16_SHELL="$HOME/.config/base16-shell/base16-eighties.sh"
 # [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-# Virtualcandy
-source ~/.virtualcandy/src/virtualcandy.zsh
-
 
 # added by travis gem
 [ -f /Users/taylor/.travis/travis.sh ] && source /Users/taylor/.travis/travis.sh

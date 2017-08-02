@@ -77,7 +77,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " neomake for linting
 Plug 'neomake/neomake'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 
 " Ultisnips
@@ -136,6 +136,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
 
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
@@ -147,17 +148,17 @@ let g:deoplete#omni#functions.javascript = [
 
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs', 'buffers']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 
 " tab completion stuff
-" autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " close the preview window when you're not using it
-"let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
 " set completeopt-=preview
 
