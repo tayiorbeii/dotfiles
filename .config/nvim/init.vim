@@ -70,7 +70,6 @@ function! DoRemote(arg)
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
-Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -111,9 +110,6 @@ Plug 'trevordmiller/nova-vim'
 " NerdTree
 Plug 'scrooloose/nerdtree'
 
-" Rainbow Parentheses
-Plug 'kien/rainbow_parentheses.vim'
-
 " Vim Startify
 Plug 'mhinz/vim-startify'
 
@@ -140,6 +136,13 @@ Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
 " Use deoplete.
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+" let g:deoplete#disable_auto_complete =1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
@@ -148,7 +151,7 @@ let g:deoplete#omni#functions.javascript = [
 
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs', 'buffers']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffers', 'ternjs']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 

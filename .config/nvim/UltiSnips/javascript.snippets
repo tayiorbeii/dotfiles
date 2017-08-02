@@ -97,10 +97,6 @@ snippet p "pass prop"
 $1={$2}
 endsnippet
 
-snippet ( "parens" i
-($1) ${0}
-endsnippet
-
 snippet (n "parens with new line" i
 (
 	$1
@@ -111,19 +107,11 @@ endsnippet
 snippet {n "braces with new line" i
 {
 	$1
-} ${0}
-endsnippet
-
-snippet " "quotes" i
-"$1" ${0}
-endsnippet
-
-snippet ` "tack" i
-\`$1\` ${0}
+}${0}
 endsnippet
 
 snippet st "string interpolation" i
-\$\{$1\}$2 ${0}
+\$\{$1\}$2${0}
 endsnippet
 
 snippet oa "Object.assign"
