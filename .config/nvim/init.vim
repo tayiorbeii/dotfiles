@@ -239,28 +239,6 @@ let g:UltiSnipsEditSplit="vertical"
 " Nerdtree shortcut
 map <F5> :NERDTreeToggle<CR>
 
-" Rainbow Parens stuff
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-let g:rbpt_loadcmd_toggle = 0
-
 " Map Ctrl+k for EasyMotion
 map <Leader><Leader>w <Plug>(easymotion-overwin-w)
 map <C-k> <Leader><Leader>w
@@ -270,3 +248,6 @@ map <C-k> <Leader><Leader>w
 " set termguicolors
 colorscheme nova
 set colorcolumn=100
+
+
+call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
