@@ -26,6 +26,12 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" remap for fat fingers
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " crosshairs
 set cursorline
 set cursorcolumn
@@ -161,9 +167,9 @@ let g:UltiSnipsExpandTrigger="<C-j>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " close the preview window when you're not using it
-let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
-" set completeopt-=preview
+set completeopt-=preview
 
 
 " tern

@@ -2,18 +2,79 @@
 # React
 #
 
+snippet ks "key with string value"
+${1}: '${2}'${0}
+endsnippet
+
+snippet ko "key with object value"
+${1}: ${2}${0}
+endsnippet
+
+snippet c "const"
+const ${1} = ${0}
+endsnippet
+
+# Only works with blank space before it
+snippet cbs "const bracket spaced" "re.match(' *', snip.buffer[snip.line])" e 
+const { ${1} } = ${0}
+endsnippet
+
+snippet onc "onClick"
+onClick={() => ${1}}
+endsnippet
+
 snippet ir "Import React" b
 import React from 'react'
+endsnippet
+
+snippet cdm "componentDidMount"
+componentDidMount () {
+	${1}
+}
+endsnippet
+snippet cwm "componentWillMount"
+componentWillMount () {
+	${1}
+}
+endsnippet
+
+snippet ed "export default"
+export default ${0}
+endsnippet
+
+snippet irc "Import React and Component" b
+import React, { Component } from 'react'
+endsnippet
+
+snippet rclass "React Class" b
+class $1 extends Component {
+	constructor (props) {
+		super(props)
+		${2: this.state = {
+			${3: }
+		}}
+	}
+
+	render () {
+	
+		return (${0})
+	}
+} 
+endsnippet
+
+snippet co "component"
+<${1} />
+endsnippet
+
+snippet map "map fcn" i
+map((${1}) => ${0})
 endsnippet
 
 snippet sfc "Stateless Functional Component" b
 const $1 = (\{${2}\}) => {
 	return (
-		$4		
+		${0}
 	)
-}
-$1.propTypes = {
-	$3
 }
 
 endsnippet
@@ -40,16 +101,20 @@ snippet aaf "anonymous arrow function" i
 endsnippet
 
 snippet t "Tag"
-<${1}>${2}</$1>
+<${1} ${2}>${0}</$1>
 endsnippet
 
 snippet tn "Tag with new line"
-<${1}${2: className=${3}}>
+<${1} ${2}>
 	${0}
 </$1>
 endsnippet
 
-snippet cn "className"
+snippet cn "className (string)"
+className='$1'${0}
+endsnippet
+
+snippet cnb "className"
 className={$1}${0}
 endsnippet
 
@@ -78,40 +143,68 @@ debugger;${0}
 endsnippet
 
 snippet d "<div>"
-<div${1: className=$2}>
-	$0
-</div> ${0}
+<div${1}>
+	${0}
+</div>
+endsnippet
+
+snippet div "<div>"
+<div${1}>
+	${0}
+</div>
 endsnippet
 
 snippet if "if statement"
 if ($1) {
-	$2
-} ${0}
+	${0}
+}
 endsnippet
 
 snippet pp "pass prop (identity)"
 $1={$1}${0}
 endsnippet
 
-snippet p "pass prop"
-$1={$2}
+snippet pr "pass prop"
+$1={${0}}
 endsnippet
 
-snippet (n "parens with new line" i
+snippet pn "parens with new line" i
 (
-	$1
-) ${0}
+	${0}
+)
 endsnippet
 
+snippet p "parens" i
+(${0})
+endsnippet
 
-snippet {n "braces with new line" i
+# only expand after a space, paren, equals
+snippet b "braces" "re.match('[ (=]', snip.buffer[snip.line])" e
+{${0}}
+endsnippet
+
+snippet bs "braces with space" "re.match('[ (=]', snip.buffer[snip.line])" e
+{ ${0} }
+endsnippet
+
+snippet bn "braces with new line" i
 {
-	$1
-}${0}
+	${0}
+}
+endsnippet
+
+snippet a "array brackets" i
+[${0}]
+endsnippet
+
+snippet an "array brackets new line" i
+[
+	${0}
+]
 endsnippet
 
 snippet st "string interpolation" i
-\$\{$1\}$2${0}
+\$\{$1\}${0}
 endsnippet
 
 snippet oa "Object.assign"
@@ -119,11 +212,11 @@ Object.assign({$1}, $2) ${0}
 endsnippet
 
 snippet i "import" b
-import $1 from '$2' ${0}
+import $1 from '$2'
 endsnippet
 
 snippet di "Destructured Import" b
-import \{ $1 \} from '$2' ${0}
+import \{ $1 \} from '$2'${0}
 
 endsnippet
 #
@@ -131,17 +224,21 @@ endsnippet
 #
 
 snippet dir "console.dir"
-console.dir(${1}) ${0}
+console.dir(${1})
+endsnippet
+
+snippet cl
+console.log('$1')
 endsnippet
 
 snippet clv
-console.log('$1: ', $1) ${0}
+console.log('$1: ', $1)
 endsnippet
 
 snippet clvj
-console.log('$1: ', $1.toJSON()) ${0}
+console.log('$1: ', $1.toJSON())
 endsnippet
 
 snippet cl*
-console.log('**************************') ${0}
+console.log('**************************')
 endsnippet

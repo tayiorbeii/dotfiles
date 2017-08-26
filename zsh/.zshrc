@@ -141,3 +141,5 @@ bindkey '^R' history-incremental-search-backward
 [ -f /Users/taylor/.travis/travis.sh ] && source /Users/taylor/.travis/travis.sh
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
