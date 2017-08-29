@@ -61,9 +61,13 @@ inoremap <C-a> <C-o>0
 call plug#begin('~/dotfiles/.config/nvim/plugged')
 
 " fzf fuzzy finding
-Plug 'junegunn/fzf'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf'
+" Plug '/usr/local/opt/fzf'
+" Plug 'junegunn/fzf.vim'
+
+" ripgrep
+Plug 'jremmen/vim-ripgrep'
+
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
