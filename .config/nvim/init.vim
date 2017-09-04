@@ -12,6 +12,7 @@ set indentkeys+=O,o
 set clipboard=unnamed
 set incsearch
 set wrapscan
+set mouse=a
 
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
@@ -61,9 +62,9 @@ inoremap <C-a> <C-o>0
 call plug#begin('~/dotfiles/.config/nvim/plugged')
 
 " fzf fuzzy finding
-" Plug 'junegunn/fzf'
-" Plug '/usr/local/opt/fzf'
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " ripgrep
 Plug 'jremmen/vim-ripgrep'
@@ -86,7 +87,6 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " neomake for linting
 Plug 'neomake/neomake'
-" Plug 'w0rp/ale'
 
 
 " Ultisnips
@@ -113,8 +113,8 @@ Plug 'bling/vim-bufferline'
 
 
 " color schemes
-Plug 'junegunn/seoul256.vim'
-Plug 'chriskempson/base16-vim'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'chriskempson/base16-vim'
 Plug 'trevordmiller/nova-vim'
 
 " NerdTree
@@ -139,9 +139,19 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 
 " Markdown Preview
-Plug 'neovim/node-host', { 'do': 'npm install' }
-Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
+" Plug 'neovim/node-host', { 'do': 'npm install' }
+" Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
 
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
@@ -185,6 +195,8 @@ let g:tern#arguments = ['--persistent']
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = ['eslint']
 let g:neomake_logfile = '/usr/local/var/log/neomake.log'
+autocmd! BufWritePost,BufEnter * Neomake
+
 " let g:neomake_open_list = 2 " opens window
 let g:neomake_open_list = 0 " opens window
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -199,6 +211,8 @@ map  <C-l> <ESC>:Buffers<CR>
 imap <C-p> <ESC>:Files<CR>
 map  <C-p> <ESC>:Files<CR>
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+set rtp+=/usr/local/opt/fzf
 
 " Nerdcommenter stuff
 filetype plugin on
