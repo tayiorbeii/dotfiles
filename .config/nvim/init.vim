@@ -141,6 +141,9 @@ Plug 'easymotion/vim-easymotion'
 " Markdown Preview
 " Plug 'neovim/node-host', { 'do': 'npm install' }
 " Plug 'vimlab/mdown.vim', { 'do': 'npm install' }
+
+Plug 'ruanyl/vim-gh-line'
+
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
     if has('nvim')
