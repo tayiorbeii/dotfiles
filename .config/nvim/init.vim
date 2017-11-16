@@ -31,7 +31,13 @@ noremap <Right> <NOP>
 :command WQ wq
 :command Wq wq
 :command W w
-:command Q q
+
+" NERDTreeFind
+:command Ntf :NERDTreeFind
+
+" Split Terminals
+command! -nargs=* T split | terminal <args>
+command! -nargs=* VT vsplit | terminal <args>
 
 " crosshairs
 set cursorline

@@ -96,6 +96,10 @@ alias vi="nvim"
 alias readlink="greadlink"
 alias gitrecent="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
 alias gpum="git pull upstream master"
+alias gpom="git pull origin master"
+alias gs="git status"
+alias gf="git fetch"
+alias biy="bundle && bundle install && yarn"
 alias psg='ps -aef | grep -v psg | grep -v grep | grep'
 alias k="clear"
 
