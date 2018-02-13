@@ -51,13 +51,13 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " And last of all, only be relative in the buffer we're editing.
 set number
 
-au InsertLeave * set number
-au InsertLeave * set relativenumber
+" au InsertLeave * set number
+" au InsertLeave * set relativenumber
 
-au InsertLeave * set number
-au InsertEnter * set norelativenumber
-au BufLeave,FocusLost,WinLeave * set norelativenumber
-au BufEnter,FocusGained,WinEnter * set relativenumber
+" au InsertLeave * set number
+" au InsertEnter * set norelativenumber
+" au BufLeave,FocusLost,WinLeave * set norelativenumber
+" au BufEnter,FocusGained,WinEnter * set relativenumber
 
 " Map Ctrl+e to end of line in insert mode
 inoremap <C-e> <C-o>$
@@ -94,6 +94,8 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " neomake for linting
 Plug 'neomake/neomake'
 
+" Markdown stuff
+Plug 'tpope/vim-markdown'
 
 " Ultisnips
 Plug 'SirVer/ultisnips'
@@ -150,17 +152,17 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'ruanyl/vim-gh-line'
 
-function! BuildComposer(info)
-  if a:info.status != 'unchanged' || a:info.force
-    if has('nvim')
-      !cargo build --release
-    else
-      !cargo build --release --no-default-features --features json-rpc
-    endif
-  endif
-endfunction
+" function! BuildComposer(info)
+"   if a:info.status != 'unchanged' || a:info.force
+"     if has('nvim')
+"       !cargo build --release
+"     else
+"       !cargo build --release --no-default-features --features json-rpc
+"     endif
+"   endif
+" endfunction
 
-Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+" Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
@@ -282,5 +284,7 @@ map <C-k> <Leader><Leader>w
 colorscheme nova
 set colorcolumn=100
 
+" Markdown syntax highlighting
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 call deoplete#enable_logging('DEBUG', '/tmp/deoplete.log')
