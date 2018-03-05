@@ -26,6 +26,8 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+noremap <PageUp> <NOP>
+noremap <PageDown> <NOP>
 
 " remap for fat fingers
 :command WQ wq
@@ -80,7 +82,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'sheerun/vim-polyglot'
 
 " deoplete code completion (requires python 3)
-" brew install python3 
+" brew install python3
 " pip3 install neovim
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -92,7 +94,7 @@ Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " neomake for linting
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 
 " Markdown stuff
 Plug 'tpope/vim-markdown'
@@ -137,7 +139,7 @@ Plug 'tpope/vim-repeat'
 " Clipboard manager
 Plug 'svermeulen/vim-easyclip'
 
-" Surround 
+" Surround
 Plug 'tpope/vim-surround'
 
 " Easy Motion
@@ -164,8 +166,25 @@ Plug 'ruanyl/vim-gh-line'
 
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
+Plug 'w0rp/ale'
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
+" ale
+let g:ale_change_sign_column_color = 0
+let g:ale_lint_delay = 50
+let g:ale_lint_on_insert_leave = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_emit_conflict_warnings = 1
+let g:ale_javascript_eslint_use_global = 1
+let g:ale_javascript_flow_use_global = 0
+let g:ale_javascript_standard_use_global = 0
+let g:ale_javascript_xo_use_global = 0
+let g:ale_ruby_rubocop_options = '-EDS'
+
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
@@ -203,13 +222,14 @@ let g:tern#command =['tern']
 let g:tern#arguments = ['--persistent']
 
 " Neomake lint stuff
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_logfile = '/usr/local/var/log/neomake.log'
-autocmd! BufWritePost,BufEnter * Neomake
+" let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_jsx_enabled_makers = ['eslint']
+" let g:neomake_logfile = '/usr/local/var/log/neomake.log'
+" autocmd! BufWritePost,BufEnter * Neomake
 
 " let g:neomake_open_list = 2 " opens window
-let g:neomake_open_list = 0 " opens window
+" let g:neomake_open_list = 0 " opens window
+
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
@@ -240,7 +260,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDTrimTrailingWhitespace = 1
 
 
-" Custom comment delimiters for NERDCommenter 
+" Custom comment delimiters for NERDCommenter
 let g:NERDCustomDelimiters = {
     \ 'javascript.jsx': { 'left': '//', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \ }

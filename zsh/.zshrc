@@ -102,6 +102,8 @@ alias gf="git fetch"
 alias biy="bundle && bundle install && yarn"
 alias psg='ps -aef | grep -v psg | grep -v grep | grep'
 alias k="clear"
+alias ber="bundle exec rspec"
+alias rdm="rake db:migrate"
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
