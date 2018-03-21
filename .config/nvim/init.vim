@@ -14,6 +14,9 @@ set incsearch
 set wrapscan
 set mouse=a
 
+" undo 
+set undofile
+
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
@@ -26,8 +29,8 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-noremap <PageUp> <NOP>
-noremap <PageDown> <NOP>
+inoremap <PageUp> <NOP>
+inoremap <PageDown> <NOP>
 
 " remap for fat fingers
 :command WQ wq
@@ -168,8 +171,15 @@ Plug 'ruanyl/vim-gh-line'
 
 Plug 'w0rp/ale'
 
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 """"""""""""" end vim-plug stuff"""""""""""""""""""""""""
+" emmet stuff
+" let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = { 'javascript.jsx' : { 'extends' : 'jsx', } }
+
+
 " ale
 let g:ale_change_sign_column_color = 0
 let g:ale_lint_delay = 50
