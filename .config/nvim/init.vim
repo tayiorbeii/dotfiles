@@ -46,7 +46,7 @@ command! -nargs=* VT vsplit | terminal <args>
 
 " crosshairs
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 " Fix cursor depending on mode
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -128,7 +128,11 @@ Plug 'bling/vim-bufferline'
 " color schemes
 " Plug 'junegunn/seoul256.vim'
 " Plug 'chriskempson/base16-vim'
-Plug 'trevordmiller/nova-vim'
+" Plug 'trevordmiller/nova-vim'
+" Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'sonph/onehalf'
+Plug 'haishanh/night-owl.vim'
+
 
 " NerdTree
 Plug 'scrooloose/nerdtree'
@@ -311,8 +315,13 @@ map <C-k> <Leader><Leader>w
 " colors
 " let base16colorspace=256  " Access colors present in 256 colorspace
 " set termguicolors
-colorscheme nova
+if (has("termguicolors"))
+  set termguicolors
+endif
+" colorscheme nova
+colorscheme night-owl
 set colorcolumn=100
+highlight clear SignColumn
 
 " Markdown syntax highlighting
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']

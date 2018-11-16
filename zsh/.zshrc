@@ -61,6 +61,10 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/mysql/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+
 eval "$(rbenv init -)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -104,6 +108,7 @@ alias psg='ps -aef | grep -v psg | grep -v grep | grep'
 alias k="clear"
 alias ber="bundle exec rspec"
 alias rdm="rake db:migrate"
+alias rm="trash"
 
 # Get z working
 . `brew --prefix`/etc/profile.d/z.sh
@@ -150,3 +155,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
