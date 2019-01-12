@@ -1,0 +1,46 @@
+extends html, ruby, rails
+
+snippet tn "new tag"
+<${1}${2}>
+	${0}
+</$1>
+endsnippet
+
+snippet t "tag"
+<${1}${2}>${0}</$1>
+endsnippet
+
+snippet cl "class"
+class="${0}"
+endsnippet
+
+snippet pn "parens with new line" i
+(
+	${0}
+)
+endsnippet
+
+snippet p "parens" i
+(${0})
+endsnippet
+
+# only expand after a space, paren, equals
+snippet b "braces" "re.match('[ (=]', snip.buffer[snip.line])" e
+{${0}}
+endsnippet
+
+snippet bn "braces with new line" i
+{
+	${0}
+}
+endsnippet
+
+snippet a "array brackets" i
+[${0}]
+endsnippet
+
+snippet an "array brackets new line" i
+[
+	${0}
+]
+endsnippet
